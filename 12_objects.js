@@ -1,7 +1,7 @@
-// objects is declared into ways: 1:- Literal, 2:- constructor
+// objects is declared into ways: 1:- Literal, 2:- constructor(singleton)
 // singleton => a design pattern that tells us that we can create only one instance of a class and that instance can be accessed globally.
 
-// Object Literals *********************
+// ********************* Object Literals *******************
 
 const mySym = Symbol("key1")
 
