@@ -57,3 +57,38 @@ function loginUser(name = 'Sam') {
 const result2 = loginUser('Rajiv')
 console.log(result2);
 console.log(loginUser());
+
+// ----------------------------------------------------------------------
+
+function calculateCartPrice (...number1) { 
+    // Here ... is the rest operator or spread operator, it can include all the remaining arguments in bundle.
+    return number1
+}
+console.log(calculateCartPrice(100, 200, 300, 400, 500)); // [ 100, 200, 300, 400, 500 ]
+
+// -------------------------------------------------------------------------
+
+const user = {
+    username: "Rajiv",
+    price: 199
+}
+
+function handleObject (anyobject) {
+    console.log(`Username is ${anyobject.username} and Price is ${anyobject.price}`);
+    // Username is Rajiv and Price is 199
+}
+
+handleObject(user)
+
+// ---------------------------------------------------------------------------
+
+const myNewArray = [200 , 400, 600 , 100 , 1000] // Define an array containing five elements
+
+// Define a function that takes an array as an argument and returns the element at index 2
+function returnThirdArray (getArray) {
+    return getArray[2]
+}
+
+// Call the returnThirdArray function with myNewArray as an argument and log the result
+console.log(returnThirdArray(myNewArray)); // 600
+console.log(returnThirdArray([200, 400, 600, 100, 1000])); // we can also get the same result if we pass the argument in this way.
