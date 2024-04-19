@@ -1,3 +1,5 @@
+// ****************************** DataTypes *********************************
+
 "use strict" // treat all the JS code as newer version.
 
 // alert (3+3) -> Error print because we are using nodejs, not browser. 
