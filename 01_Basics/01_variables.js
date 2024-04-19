@@ -1,3 +1,5 @@
+// ************************ Variables *************************
+
 const accountId = 1223344 // If you want to change the state of any variable then please don't  use const. use let only.  
 let accountEmail = "rajiv@js.com"
 var accountPassword = "11234"
