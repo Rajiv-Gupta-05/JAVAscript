@@ -1,3 +1,5 @@
+// ********************************** Strings *****************************************
+
 const name = "Rajiv"
 const repoCount = 53
 console.log(`Hello my name is ${name} and my repocount in github is ${repoCount}`); // string interpolation
