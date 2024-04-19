@@ -1,4 +1,4 @@
-// ********************* Object de-structure and Json API **************************
+// ********************* Object de-structure and Json API ************************** 
 
 // Define an object named 'course' with properties such as 'coursename', 'price', and 'courseInstructor'.
 const course = {
