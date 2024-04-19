@@ -1,4 +1,4 @@
-// *************************** Singleton (Constructor) ***********************
+// *************************** Singleton (Constructor) *********************** 
 
 const tinderUser = new Object() // object declaration with empty objecrt  || This is singleton object **
 const tinderUser2 = {} // This is also a object declaration with empty object || This is not a singleton object **

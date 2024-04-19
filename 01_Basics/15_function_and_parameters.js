@@ -1,4 +1,4 @@
-// +++++++++++++++++++ Functions And Parameters +++++++++++++++++++
+// +++++++++++++++++++ Functions And Parameters +++++++++++++++++++ 
 
 function myName() {
   // () -> paranthesis, {} -> scope or definition

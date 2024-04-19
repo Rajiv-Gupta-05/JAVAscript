@@ -1,4 +1,4 @@
-// ************************* Numbers **************************
+// ************************* Numbers ***************************
 
 const score = 400 // Here javascript know that this is number.
 console.log(score); // 400

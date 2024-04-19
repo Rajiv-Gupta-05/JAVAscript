@@ -1,4 +1,4 @@
-// ##################### Immediately Invoked Function Expression (IIFE) ####################
+// ##################### Immediately Invoked Function Expression (IIFE) #################### 
 
 // Why IIFE is used ?
 /* 

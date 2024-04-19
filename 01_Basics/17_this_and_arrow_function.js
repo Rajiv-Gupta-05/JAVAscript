@@ -1,4 +1,4 @@
-// ********************************** This and Arrow Functions *****************************
+// ********************************** This and Arrow Functions ***************************** 
 
 // Creating an object 'user'
 const user = {

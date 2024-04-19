@@ -1,5 +1,5 @@
 // **************************** JavaScript Execution Context ****************************
-
+ 
 /* 
 In JavaScript, the execution context refers to the environment in which JavaScript code is executed. 
 It includes variables, functions, and objects that are accessible at a particular point during the execution of code. 
