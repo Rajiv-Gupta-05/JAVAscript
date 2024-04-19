@@ -1,3 +1,5 @@
+// ******************************* Datatypes Summary *********************************
+
 // How data is stored in memory and access that data ?
 
 // 1. Primitive (Call by value):- 7 types: String, Number, Boolean, null, undefined, Symbol, BigInt
