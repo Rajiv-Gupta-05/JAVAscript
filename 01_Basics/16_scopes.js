@@ -1,4 +1,4 @@
-// ******************************** Scopes ( Global and Block) **********************************
+// ******************************** Scopes ( Global and Block) ********************************** 
 
 /* 1. Global Scope: Variables declared outside of any function have global scope. 
       They can be accessed from anywhere in the code.
