@@ -21,5 +21,4 @@ console.log(undefined == 0); //false
 console.log(undefined > 0); //false
 console.log(undefined < 0); //false
 
-
 console.log("2" === 2); // false  |  "===" strictly check the value and datatypes also.
