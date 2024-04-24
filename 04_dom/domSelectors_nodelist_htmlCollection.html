@@ -1,0 +1,144 @@
+// ***************************** DOM Selectors *******************************
+
+/*
+ In JavaScript, you can use various methods to select elements in the Document Object Model (DOM) 
+ for manipulation or interaction.
+*/
+
+// 1. getElementById(): This method selects a single element by its ID attribute.
+var element = document.getElementById("myElement");
+
+// 2. getElementsByClassName(): This method selects all elements that have a specific class name.
+var elements = document.getElementsByClassName("myClass");
+
+// 3. getElementsByTagName(): This method selects all elements with a specified tag name.
+var elements = document.getElementsByTagName("div");
+
+// 4. querySelector(): This method selects the first element that matches a specified CSS selector.
+var element = document.querySelector("#myElement .myClass");
+
+// 5. querySelectorAll(): This method selects all elements that match a specified CSS selector.
+var elements = document.querySelectorAll("p.intro");
+
+/* 
+ querySelector() and querySelectorAll(): 
+ Both of these methods support a wide range of CSS selectors, 
+ including element names, IDs, classes, attribute selectors, and more. 
+ This makes them very versatile for selecting elements based on various criteria.
+*/
+
+/*
+  These methods return either a single DOM element or a NodeList (for querySelectorAll()), 
+  which is a collection of DOM elements. Once you've selected the elements you need, 
+  you can manipulate them, add event listeners to them, or perform any other actions you require in your JavaScript code.
+*/
+
+
+// *************************************** NodeList *************************************************
+
+/*
+ A NodeList is a collection of DOM elements returned by methods like querySelectorAll() or properties like childNodes. 
+ It represents a list of nodes in the order they appear in the DOM.
+
+Here's an explanation with an example:
+*/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeList Example</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        // Selecting all <li> elements within the <ul> using querySelectorAll
+        var listItems = document.querySelectorAll('#myList li');
+
+        // Now listItems is a NodeList containing all <li> elements
+        console.log(listItems); // NodeList [ <li>Item 1</li>, <li>Item 2</li>, <li>Item 3</li> ]
+
+        // You can iterate over the NodeList using forEach
+        listItems.forEach(function(item) {
+            console.log(item.textContent); // Output: Item 1, Item 2, Item 3
+        });
+
+        // You can also access individual items using array-like indexing
+        console.log(listItems[0].textContent); // Output: Item 1
+    </script>
+</body>
+</html>
+
+/* 
+In this example:
+
+ -> We have an unordered list (<ul>) with three list items (<li>). 
+ -> We use querySelectorAll('#myList li') to select all list items within the list with the ID "myList".
+ -> The returned value, listItems, is a NodeList containing the three <li> elements.
+ -> We log listItems to the console, showing it's a NodeList containing the three list items.
+ -> We iterate over the NodeList using forEach() to log the text content of each <li> element.
+ -> We also access individual items using array-like indexing (e.g., listItems[0] for the first <li> element).
+*/
+
+// ***************************************** HTMLCollection *************************************************
+
+/* 
+An HTMLCollection is another type of collection of DOM elements, similar to a NodeList, but with some differences. 
+It represents a live collection of elements in the DOM.
+
+Here's an explanation with an example:
+*/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLCollection Example</title>
+</head>
+<body>
+    <div id="container">
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
+    </div>
+
+    <script>
+        // Selecting all <p> elements within the <div> using getElementsByTagName
+        var paragraphs = document.getElementById('container').getElementsByTagName('p');
+
+        // Now paragraphs is an HTMLCollection containing all <p> elements
+        console.log(paragraphs); // HTMLCollection [ <p>Paragraph 1</p>, <p>Paragraph 2</p>, <p>Paragraph 3</p> ]
+
+        // You can iterate over the HTMLCollection using a for loop
+        for (var i = 0; i < paragraphs.length; i++) {
+            console.log(paragraphs[i].textContent); // Output: Paragraph 1, Paragraph 2, Paragraph 3
+        }
+
+        // You can also access individual items using array-like indexing
+        console.log(paragraphs[0].textContent); // Output: Paragraph 1
+    </script>
+</body>
+</html>
+
+/*
+    => We have a <div> with the ID "container" containing three paragraphs (<p> elements).
+    => We use getElementsByTagName('p') on the <div> element to select all paragraphs within it.
+    =>The returned value, paragraphs, is an HTMLCollection containing the three <p> elements.
+    => We log paragraphs to the console, showing it's an HTMLCollection containing the three paragraphs.
+    => We iterate over the HTMLCollection using a for loop to log the text content of each <p> element.
+    => We also access individual items using array-like indexing (e.g., paragraphs[0] for the first <p> element).
+*/
+
+/*
+One key difference between a NodeList and an HTMLCollection is that while NodeList can contain 
+various types of nodes (not just elements), an HTMLCollection is limited to containing only elements. 
+Additionally, HTMLCollections are live, meaning they are automatically updated when the DOM changes, 
+while NodeLists are not.
+*/
