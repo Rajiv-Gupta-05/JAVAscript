@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <!-- Initial list with one item -->
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    // Function to add a language item dynamically
+    function addLanguage(langName) {
+        const li = document.createElement("li");
+        li.innerHTML = `${langName}`;
+        document.querySelector(".language").appendChild(li)
+    }
+    // Adding new language items
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // Function to add an optional language item dynamically
+    function addOptilanguage(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    // Adding an optional language item
+    addOptilanguage('golang')
+
+    // Edit
+
+    // Selecting the second language item and replacing its content
+    const secondLang =  document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML = "mojo" 
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    // edit
+
+    // Selecting the first language item and replacing its content
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>Typescript</li>'
+
+    //remove
+
+    // Removing the last language item
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+</script>
+</html>
