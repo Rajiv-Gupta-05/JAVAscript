@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    // Creating a new <div> element
+    const div = document.createElement("div");
+
+    // Logging the created div element
+    console.log(div);
+
+    // Adding a class to the div using className
+    div.className = "newelement"; // Corrected from div.className.add
+
+    // Adding an ID to the div
+    div.id = Math.round(Math.random() * 10 + 1);
+
+    // Adding a title attribute to the div using setAttribute
+    div.setAttribute("title", "generated title");
+
+    // Adding inline styles to the div
+    div.style.backgroundColor = "orange";
+    div.style.padding = "12px";
+
+    // Adding text content to the div using textContent
+    div.textContent = "New Element Added Successfully."; // Corrected from div.textContent.add
+
+    // Appending the div to the body of the HTML document
+    document.body.appendChild(div);
+</script>
+</html>
