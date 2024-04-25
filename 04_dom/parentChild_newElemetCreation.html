@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- We have a parent <div> with the class "parent" containing four child <div>s with the class "day" -->
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    // Selecting the parent <div> with the class "parent"
+    const parent = document.querySelector(".parent");
+
+    // Logging the parent element
+    console.log(parent);
+
+    // Logging the children of the parent element
+    console.log(parent.children);
+
+    // Logging the inner HTML of the first child element
+    console.log(parent.children[0].innerHTML);
+
+    // Looping through each child element and logging their inner HTML
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);
+    }
+
+    // Changing the style of the second child element
+    parent.children[1].style.color = "orange";
+
+    // Logging the first and last child elements
+    console.log(parent.firstElementChild);
+    console.log(parent.lastElementChild);
+
+    // Selecting the first element with the class "day"
+    const dayOne = document.querySelector(".day");
+
+    // Logging the selected element, its parent element, and its next sibling element
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);
+
+    // Logging all nodes (including text nodes) within the parent element
+    console.log("NODES:", parent.childNodes);
+
+    // Creating a new <div> element
+    const newDay = document.createElement("div");
+    newDay.classList.add("day");
+    newDay.textContent = "Friday"; // Adding text content to the new element
+
+    // Appending the new element to the parent
+    parent.appendChild(newDay);
+</script>
+</html>
