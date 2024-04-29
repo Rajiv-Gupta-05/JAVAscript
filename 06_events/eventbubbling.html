@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Bubbling Example</title>
+<style>
+    .outer {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        padding: 20px;
+    }
+    .inner {
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="outer" id="outerDiv">
+    <div class="inner" id="innerDiv">
+        Inner Div
+    </div>
+    Outer Div
+</div>
+
+<script>
+    // Get references to the outer and inner divs
+    var outerDiv = document.getElementById('outerDiv');
+    var innerDiv = document.getElementById('innerDiv');
+
+    // Add event listeners to both divs
+    outerDiv.addEventListener('click', function() {
+        console.log('Outer div clicked!');
+    });
+
+    innerDiv.addEventListener('click', function() {
+        console.log('Inner div clicked!');
+    });
+</script>
+
+</body>
+</html>
+
+/*
+    In this example, we have two nested <div> elements, an outer <div> and an inner <div>. 
+    Both divs have click event listeners attached to them. When you click on the inner <div>, 
+    the click event is first handled by the inner <div>'s event listener, 
+    and then it bubbles up to the outer <div>, triggering its event listener as well. 
+    This is what's known as event bubbling: the event starts at the target element 
+    and then bubbles up through its ancestors.
+*/

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Capturing Example</title>
+<style>
+    .outer {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        padding: 20px;
+    }
+    .inner {
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        padding: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="outer" id="outerDiv">
+    <div class="inner" id="innerDiv">
+        Inner Div
+    </div>
+    Outer Div
+</div>
+
+<script>
+    // Get references to the outer and inner divs
+    var outerDiv = document.getElementById('outerDiv');
+    var innerDiv = document.getElementById('innerDiv');
+
+    // Add event listeners to both divs with capturing
+    outerDiv.addEventListener('click', function() {
+        console.log('Outer div clicked - Capturing');
+    }, true); // true for capturing
+
+    innerDiv.addEventListener('click', function() {
+        console.log('Inner div clicked - Capturing');
+    }, true); // true for capturing
+</script>
+
+</body>
+</html>
+
+/*
+    In this example, the event listeners are attached with the third parameter set to true, 
+    indicating that they should be executed during the capturing phase. 
+    When you click on the inner <div>, the event handlers for both the outer and 
+    inner divs are triggered during the capturing phase, from the outermost ancestor down to the target element. 
+    Then, the event reaches the target element and enters the bubbling phase, 
+    where it triggers event handlers from the target element up to the outermost ancestor.
+*/

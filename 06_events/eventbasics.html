@@ -1,0 +1,70 @@
+// 1. Mouse Click Event:
+
+<button id="myButton">Click me</button>
+<script>
+  document.getElementById("myButton").addEventListener("click", function () {
+    alert("Button clicked!");
+  });
+</script>
+
+// 2. Mouse Hover Event:
+
+<div
+  id="myDiv"
+  style="width: 100px; height: 100px; background-color: blue"
+></div>
+<script>
+  document.getElementById("myDiv").addEventListener("mouseenter", function () {
+    this.style.backgroundColor = "red";
+  });
+  document.getElementById("myDiv").addEventListener("mouseleave", function () {
+    this.style.backgroundColor = "blue";
+  });
+</script>
+
+// 3. Keyboard Event:
+
+<input type="text" id="myInput" />
+<script>
+  document
+    .getElementById("myInput")
+    .addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        alert("Enter key pressed!");
+      }
+    });
+</script>
+
+// Form Submission Event:
+
+<form id="myForm">
+  <input type="text" name="username" />
+  <button type="submit">Submit</button>
+</form>
+<script>
+  document
+    .getElementById("myForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevents the form from submitting in the traditional way
+      alert("Form submitted!");
+    });
+</script>
+
+// Document Load Event:
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    alert("Document loaded!");
+  });
+</script>
+
+// Example of removing images by click event
+
+<script>
+  document.querySelector("#images").addEventListener("click", function (e) {
+    if (e.target.tagName === "IMG") {
+      let removeIt = e.target.parentNode;
+      removeIt.remove();
+    }
+  });
+</script>
