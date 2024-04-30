@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout_setInterval</title>
+</head>
+<body>
+    <h1>Rajiv Rocking</h1>
+    <button id="stop"></button>
+</body>
+<script>
+    const sayRajiv = function(){
+        console.log("Rajiv");
+    }
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Best JS Series!"
+    }
+    setTimeout(sayRajiv, 2000)
+    const changeMe = setTimeout(changeText, 2000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe)
+        console.log("Stopped!!!");
+    })
+</script>
+</html>

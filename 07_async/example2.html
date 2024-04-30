@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message-container {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Rajiv Rocking</h1>
+        <button id="stop">Stop</button>
+        <button id="start">Start</button>
+        <div id="message-container"></div>
+    </div>
+</body>
+<script>
+    let startInterval;
+
+    document.querySelector('#start').addEventListener('click', function(){
+        startInterval = setInterval(function() {
+            const messageContainer = document.querySelector('#message-container');
+            messageContainer.textContent = "Rajiv Rocking";
+        }, 2000);
+    });
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearInterval(startInterval);
+        document.querySelector('#message-container').textContent = ""; // Clear message
+    });
+</script>
+</html>
