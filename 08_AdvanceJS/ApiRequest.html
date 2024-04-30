@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #212121;
+        color: #fff;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #fff;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #007bff;
+      }
+
+      tr:nth-child(even) {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>XMLHttpRequest: readyState property</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Value</th>
+          <th>State</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>unsent</td>
+          <td>Client has been created. open() not called yet.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>opened</td>
+          <td>open() has been called.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>headers_received</td>
+          <td>send() has been called, and headers and status are available.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>loading</td>
+          <td>Downloading; responseText holds partial data.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>done</td>
+          <td>The operation is complete.</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script>
+    const requestUrl = "https://randomuser.me/api/";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const data = JSON.parse(this.responseText);
+        console.log(data);
+        console.log(typeof data);
+        console.log(data.results[0].dob);
+      }
+    };
+    xhr.send();
+  </script>
+</html>
+
+/*
+ 1. Setting up the XMLHttpRequest object:
+    const requestUrl = "https://randomuser.me/api/";
+    const xhr = new XMLHttpRequest();
+    => Here, we declare a variable requestUrl to store the URL of the API endpoint we want to make a request to. 
+       Then, we create a new instance of the XMLHttpRequest object and assign it to the variable xhr. 
+       This object allows us to make HTTP requests from the browser.
+
+ 2. Opening the request:
+    xhr.open("GET", requestUrl);
+    => We use the open() method of the XMLHttpRequest object to specify the details of the request. 
+       Here, we specify that we want to make a GET request to the URL stored in requestUrl.
+
+ 3. Setting up event listener for state changes:
+    xhr.onreadystatechange = function () {
+        // Code to handle state changes
+    };
+    => We assign an event listener to the xhr object's onreadystatechange property. 
+       This listener will be triggered whenever the readyState property of the xhr object changes, 
+       indicating that the state of the request has changed.
+
+ 4. Handling state changes:
+    console.log(xhr.readyState);
+    if (xhr.readyState === 4 && xhr.status === 200) {
+    // Code to handle successful response
+    }
+    => Inside the event listener, we log the current readyState of the xhr object to the console. 
+       The readyState property represents the state of the request, 
+       with a value of 4 indicating that the request is complete and the response is ready. 
+       Additionally, we check if the status property of the xhr object is equal to 200, 
+       which indicates that the request was successful.
+ 
+ 5. Parsing and accessing the response data:
+    const data = JSON.parse(this.responseText);
+    console.log(data);
+    console.log(typeof data);
+    console.log(data.results[0].dob);
+
+    => If the request is successful, we parse the response JSON using JSON.parse() and store it in the data variable. 
+       We then log the parsed data to the console and also log the type of the data variable. 
+       Finally, we access and log the dob (date of birth) property of the first result in the 
+       results array of the response data.
+
+
+       =>>> Overall, this code makes a GET request to the Random User Generator API, 
+            retrieves the response data, parses it, and logs some information about it to the console.
+*/
