@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Bind</title>
+</head>
+<body>
+    <button>Button Clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = 'React'
+            this.server = "http://localhost:3000/"
+
+            document.querySelector('button').addEventListener('click', this.handleClick.bind(this))
+        }
+        handleClick(){
+            console.log("Button Clicked");
+            console.log(this.server);
+        }
+    }
+</script>
+</html>
+
+<!-- 
+    Here, bind() is used to set the value of this inside the handleClick method of the React class.
+
+    =>> In JavaScript, this is a special keyword that refers to the current context. 
+        However, its value can change depending on how a function is called. 
+        Inside the event handler function handleClick(), this refers to the element that triggered the event, 
+        which is the button element in this case.
+    
+    =>> However, within the handleClick method of the React class, 
+        this is intended to refer to the instance of the React class itself. 
+        But without using bind(), when the handleClick method is called as an event listener, 
+        this would refer to the button element, not the React instance. 
+        This could lead to unexpected behavior or errors if you try to access properties or 
+        methods of the React instance within handleClick.
+
+    =>> To solve this problem and ensure that this refers to the React instance within the handleClick method, 
+        the bind() method is used when adding the event listener:
+
+        document.querySelector('button').addEventListener('click', this.handleClick.bind(this))
+
+        ==> Here, this.handleClick.bind(this) creates a new function that, 
+            when called, will execute the handleClick method of the React instance (this) and ensures that 
+            this inside handleClick refers to the React instance, not the button element.
+
+    
+    ==>> So, when the button is clicked, the handleClick method of the React instance is invoked, 
+         and within that method, this refers to the instance of the React class, 
+         allowing access to its properties like this.server.
+
+ -->
