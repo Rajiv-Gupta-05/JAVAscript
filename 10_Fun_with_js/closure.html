@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+    <script>
+
+      function init() {
+        let name = "Mozilla";
+        function displayName() {
+          console.log(name);
+        }
+        displayName();
+      }
+      init();
+      
+    </script>
+
+    <script>
+
+        function clickHandler(color){
+            // document.body.backgroundColor = `${color}`
+            return function(){
+            document.body.backgroundColor = `${color}`
+        }
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+  </body>
+</html>
+
+<!--
+    Lexical Scoping:
+Lexical scoping refers to the way variable access is determined by the position of the variables 
+within the nested structure of code blocks. In JavaScript, scope is defined during the lexing phase of code execution, 
+which is why it's called lexical scoping.
+
+    Key Points:
+-> Scope Chain: Each function in JavaScript maintains a reference to its outer scope (lexical environment) where it was defined. 
+   This forms a chain of scopes known as the scope chain.
+-> Scope Resolution: When a variable is referenced, JavaScript looks up the scope chain starting 
+   from the innermost scope (where the variable was referenced) and goes outward until it finds the variable declaration.
+-> Function Scope: Variables declared inside a function are only accessible within that function unless 
+   they are explicitly passed to inner functions or returned from the outer function.
+
+---------------------------------------------------------------------------------------------------------------
+
+    Closure:
+A closure is a combination of a function and the lexical environment within which that function was declared. 
+It allows a function to access and manipulate variables from its outer scope 
+even after the outer function has finished executing.
+
+    Key Points:
+-> Encapsulation: Functions in JavaScript carry their lexical environment with them, creating a closure. 
+   This encapsulates variables within the function's scope, preventing them from being modified by external code.
+-> Data Privacy: Closures provide a way to create private variables and functions 
+   because the enclosed scope is not accessible from outside the function.
+-> Maintaining State: Closures can be used to maintain state across multiple function calls, 
+   as variables within the closure retain their values between calls.
+-->
